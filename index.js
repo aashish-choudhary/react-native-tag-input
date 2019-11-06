@@ -260,32 +260,30 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
             onContentSizeChange={this.onScrollViewContentSizeChange}
             keyboardShouldPersistTaps={('handled': KeyboardShouldPersistTapsProps)}
             {...this.props.scrollViewProps}>
-            <View style={styles.tagInputContainer}>
-              {tags}
-              <View style={[styles.textInputContainer]}>
-                <TextInput
-                  ref={this.tagInputRef}
-                  blurOnSubmit={false}
-                  onKeyPress={this.onKeyPress}
-                  value={this.props.text}
-                  style={[
-                    styles.textInput,
-                    {
-                      color: this.props.inputColor
-                    }
-                  ]}
-                  onBlur={Platform.OS === 'ios' ? this.onBlur : undefined}
-                  onChangeText={this.props.onChangeText}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  placeholder="Tags (Seprated by ' ', Max: 4)"
-                  returnKeyType="done"
-                  keyboardType="default"
-                  editable={this.props.editable}
-                  underlineColorAndroid="rgba(0,0,0,0)"
-                  {...this.props.inputProps}
-                />
-              </View>
+            <View style={styles.tagInputContainer}>{tags}</View>
+            <View style={[styles.textInputContainer]}>
+              <TextInput
+                ref={this.tagInputRef}
+                blurOnSubmit={false}
+                onKeyPress={this.onKeyPress}
+                value={this.props.text}
+                style={[
+                  styles.textInput,
+                  {
+                    color: this.props.inputColor
+                  }
+                ]}
+                onBlur={Platform.OS === 'ios' ? this.onBlur : undefined}
+                onChangeText={this.props.onChangeText}
+                autoCapitalize="none"
+                autoCorrect={false}
+                placeholder="Tags (Seprated by ' ', Max: 4)"
+                returnKeyType="done"
+                keyboardType="default"
+                editable={this.props.editable}
+                underlineColorAndroid="rgba(0,0,0,0)"
+                {...this.props.inputProps}
+              />
             </View>
           </ScrollView>
         </View>
@@ -429,21 +427,18 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   textInput: {
-    height: 50,
     fontSize: 17,
-    flex: 1,
     padding: 0
   },
   textInputContainer: {
+    height: 50,
     paddingLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'center'
   },
   tag: {
     justifyContent: 'center',
-    marginTop: 6,
     marginRight: 3,
-    padding: 8,
+    padding: 5,
     height: 24,
     borderRadius: 2
   },
